@@ -1,2 +1,2 @@
-# Cisco-Secure-Client-Package-Builder-2.0
+# Cisco-Secure-Client-Package-Builder
 Packaging of a cisco secure client dmg
