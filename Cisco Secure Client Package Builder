@@ -16,7 +16,7 @@ dialogApp="/usr/local/bin/dialog"
 title="version query"
 message="Hello $loggedInUser,
 \nPlease enter the version number of the Cisco Secure Client to be packaged."
-icon="/Library/Application Support/Hypoport hub SE/hhuh.png"
+icon="/Library/Application Support/Company Name/Image Name.png"
 
 #Main dialog
   dialogCMD="$dialogApp -p --title \"$title\" \
