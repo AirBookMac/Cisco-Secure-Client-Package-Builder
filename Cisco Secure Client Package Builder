@@ -113,7 +113,7 @@ sudo -u $currentuser cp -R "$pkg_path" "$extract_path"
 
 #Unmount Image
 echo "Unmount DMG..."
-sudo -u $currentuser hdiutil detach "/Volumes/Cisco Secure Client 5.1.3.62"
+sudo -u $currentuser hdiutil detach "/Volumes/Cisco Secure Client $version_number"
 echo "Extract completed: $pkg_name to $extract_path"
 
 
