@@ -13,21 +13,21 @@ loggedInUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/LongUserNa
 dialogApp="/usr/local/bin/dialog"
 
 #Swift variables
-title="Versionsabfrage"
-message="Hallo $loggedInUser,
-\n bitte gib die zu paketierende Versionsnummer vom Cisco Secure Client ein."
+title="Version query"
+message="Hello $loggedInUser,
+\n please enter the version number of the Cisco Secure Client to be packaged."
 icon="/Library/Application Support/Hypoport hub SE/hhuh.png"
 
 #Main dialog
   dialogCMD="$dialogApp -p --title \"$title\" \
   --icon \"$icon\" \
   --message \"$message\" \
-  --button1text "Paketieren" \
-	--button2text "Abbrechen" \
+  --button1text "Packaging" \
+	--button2text "Cancel" \
   --moveable \
 	--ontop \
 	--small \
-  --textfield \"Version Number",prompt="e.g. 5.1.3.62",required,regex="([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)",regexerror="Versionsnummer muss eine Zahl mit vier Blöcken sein.\""
+  --textfield \"Version Number",prompt="e.g. 5.1.3.62",required,regex="([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)",regexerror="Version number must be a number with four blocks.\""
 
   input_version=$(eval "$dialogCMD" | awk -F " : " '{print $NF}')
 
