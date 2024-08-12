@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#Cisco Secure Client Package Builder 2.0
+#Cisco Secure Client Package Builder 2.1
 #Hypoport hub SE -=- Mirko Steinbrecher
 #Created on 22.05.2024
 
-#This script builds an Cisco Secure Client Package. You need the newest .dmg from IT-Sec
+#This script builds an Cisco Secure Client Package.
 
 #Givenname from the logged in user
 loggedInUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/LongUserNameKey :/ { print $4 }' )
@@ -61,9 +61,6 @@ currentuser=$( scutil <<< "show State:/Users/ConsoleUser" | awk '/Name :/ && ! /
 echo $currentuser
 
 
-#Create SecureClient Folder
-sudo -u $currentuser mkdir /private/var/tmp/SecureClient
-
 #Givenname from the logged in user
 loggedInUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/LongUserNameKey :/ { print $4 }' )
 
@@ -73,6 +70,14 @@ pkg_name="Cisco\ Secure\ Client.pkg"
 image_name="Cisco\ Secure\ Client\ $version_number"
 extract_path="/private/var/tmp/SecureClient"
 
+#Check if previous extract_path exists
+if [ -d "/private/var/tmp/SecureClient" ]; then
+  echo "Existing extract_path found: /private/var/tmp/SecureClient. Delete the folder."
+  rm -f -R /private/var/tmp/SecureClient
+fi
+
+#Create SecureClient Folder
+sudo -u $currentuser mkdir /private/var/tmp/SecureClient
 
 #Extract versionnumber
 regex="([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)"
@@ -152,4 +157,4 @@ echo "Open Folder $extract_path"
 open $extract_path
 
 
-echo Exit 0
+echo Exit 
