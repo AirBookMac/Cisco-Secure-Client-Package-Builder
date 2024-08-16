@@ -4,7 +4,7 @@
 #Hypoport hub SE -=- Mirko Steinbrecher
 #Created on 22.05.2024
 
-#This script builds an Cisco Secure Client Package.
+#This script builds an Cisco Secure Client Package. You need the newest .dmg from IT-Sec
 
 #Givenname from the logged in user
 loggedInUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/LongUserNameKey :/ { print $4 }' )
@@ -157,4 +157,4 @@ echo "Open Folder $extract_path"
 open $extract_path
 
 
-echo Exit 
+echo Exit 0
