@@ -7,5 +7,3 @@ This can be used to create the Cisco Secure Client pkg. Download the dmg in Down
 Upload the script to jamf Pro - Scripts
 
 Create a Policy, add the script and make it available in Self Service
-
-Get Adminrights if you don't have them and run the policy.
